@@ -1,2 +1,5 @@
 data
 !data/.gitkeep
+!data/other/.gitkeep
+!data/pepes/.gitkeep
+!data/processed/.gitkeep
