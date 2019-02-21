@@ -3,3 +3,4 @@ data
 !data/other/.gitkeep
 !data/pepes/.gitkeep
 !data/processed/.gitkeep
+*.pyc

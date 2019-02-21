@@ -1,7 +1,7 @@
 import glob
 import numpy as np
 from PIL import Image
-import pickle
+import h5py
 
 
 def load_class(class_path):
@@ -14,8 +14,8 @@ def load_class(class_path):
     imgs = np.array([np.array(
         Image.open(fname)
         .convert('RGB')
-        .resize((128,128), Image.ANTIALIAS)
-    ) for fname in img_list[0:500]])
+        .resize((64,64), Image.ANTIALIAS)
+    ) for fname in img_list[0:900]])
 
     return imgs
 
@@ -47,14 +47,17 @@ if __name__ == '__main__':
 
     Y = np.concatenate((np.ones(pepe_imgs.shape[0]),np.zeros(other_imgs.shape[0])))
 
-    print (Y)
+    print (Y.shape)
 
     X, Y = unison_shuffled_copies(X,Y)
 
-    x_file = open("data/processed/X.pkl", 'wb')
-    y_file = open("data/processed/Y.pkl", 'wb')
+    # Save data
+    out_file = "data/processed/dataset.h5"    
+
+    h5f = h5py.File(out_file, 'w')
+    h5f.create_dataset('X', data=X)
+    h5f.create_dataset('Y', data=Y)
+    h5f.close()
     
-    pickle.dump(X, x_file)
-    pickle.dump(Y, y_file)
 
 

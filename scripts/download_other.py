@@ -15,7 +15,7 @@ imgur_gallery_list = [
     'Ffexn',
     '5OS0j',
     'cAGsY',
-    'mAoXy',
+#    'mAoXy',
     'wNTws',
     'WoBWM'
 ]
@@ -31,7 +31,7 @@ if __name__ == '__main__':
                 data = json.load(data_file)
 
             if data['success'] == True : 
-                print 'ok!!!'
+                print('ok!!!')
             
             else : 
                 data = dm.request_json('https://api.imgur.com/3/gallery/album/%s/images' % gallery)
@@ -53,4 +53,4 @@ if __name__ == '__main__':
             image_file = "%s_%s" % (gallery,link.split('/')[-1])
             dm.download_image(link, "%s/%s" % (image_folder,image_file))
 
-        #print json.dumps(data, indent=4, sort_keys=True)
+        #print(json.dumps(data, indent=4, sort_keys=True))

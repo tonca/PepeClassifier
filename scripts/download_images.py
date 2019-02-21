@@ -5,7 +5,7 @@ import urllib2
 
 def request_json(gallery_url):
 
-    print "Requesting data from api.imgur.com..."
+    print("Requesting data from api.imgur.com...")
 
     r = requests.get(gallery_url, headers={'Authorization': 'Client-ID 8a98dfaa9554238'})
 
@@ -16,9 +16,9 @@ def request_json(gallery_url):
 def download_image(imgurl, imgpath):
 
     if os.path.isfile(imgpath):
-        print "%s already exists." % imgpath
+        print("%s already exists." % imgpath)
     else:
-        print "%s -> %s" % (imgurl,imgpath)
+        print("%s -> %s" % (imgurl,imgpath))
 
         img = urllib2.urlopen(imgurl)
         localFile = open(imgpath, 'wb')
