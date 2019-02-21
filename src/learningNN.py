@@ -58,6 +58,7 @@ model.fit(
         epochs=10,
         batch_size=10)
 
+model.save("models/new-start.h5")
 
 print(model.summary())
 
